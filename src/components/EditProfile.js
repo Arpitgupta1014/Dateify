@@ -8,9 +8,10 @@ import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import Sidebar from "./Sidebar";
 import css from "./style.css";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+// import {useNavigate} from 'react-router-dom';
 
 function EditProfile(props) {
-
+  // const navigate = useNavigate();
   const url =
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
   const [imgFeed, setingFeed] = useState([
@@ -93,6 +94,7 @@ function EditProfile(props) {
     
   }
   const handleClick = async(event)=>{
+    console.log("go1");
     event.preventDefault();
     const { age,gender,aboutme,city,company,institution} = edPropData;
     console.log(age+" "+gender+" "+aboutme+" "+city+" "+company+" "+institution+" "+id);
@@ -104,7 +106,14 @@ function EditProfile(props) {
     });
     console.log("user of Edit profie");
     console.log(data.user);
-
+    goToprof();
+    callGetpData();
+  }
+  function goToprof(){
+    return props.change("profile");
+  }
+  function callGetpData(){
+    return props.call();
   }
   return (
     <div className="profile">
