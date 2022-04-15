@@ -9,10 +9,7 @@ We are attaching some photo of our Webapp how it looks like after hosting.<br>
 <img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(5).png" width="350px" height="300px">&nbsp;&nbsp;&nbsp;<img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(6).png" width="350px" height="300px"><br>
 <img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(7).png" width="350px" height="300px">&nbsp;&nbsp;&nbsp;<img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(8).png" width="350px" height="300px"><br>
 <img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(10).png" width="350px" height="300px">&nbsp;&nbsp;&nbsp;<img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(11).png" width="350px" height="300px"><br>
-<img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(3).png" width="370px" height="300px">&nbsp;&nbsp;&nbsp;<img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(4).png" width="370px" height="300px"><br>
-<img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(5).png" width="370px" height="300px">&nbsp;&nbsp;&nbsp;<img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(6).png" width="370px" height="300px"><br>
-<img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(7).png" width="370px" height="300px">&nbsp;&nbsp;&nbsp;<img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(8).png" width="370px" height="300px"><br>
-<img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(10).png" width="370px" height="300px">&nbsp;&nbsp;&nbsp;<img src="https://github.com/Siddharth7899/DATEIFY/blob/master/Dateify%20photos/Screenshot%20(11).png" width="370px" height="300px"><br>
+
 This app is fully based on react native for frontend and mongoose and mongoDB for backend.
 
 <!--We are working on the some other special features for this app.After some remaining work is done we will also host our app!! -->
