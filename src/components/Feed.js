@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React ,{useEffect,useState} from 'react';
+import {useCookies} from 'react-cookie';
+import axios from "axios";
 import css from "./style.css";
 import Sidebar from "./Sidebar";
 import Profile from "./Profile";
-import Passion from "./Passion";
 import EditProfile from "./EditProfile";
 import UserMedia from "./UserMedia";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
@@ -14,6 +15,34 @@ import StarOutlineIcon from "@material-ui/icons/StarOutline";
 import StarIcon from "@material-ui/icons/Star";
 
 function Feed(props) {
+  var id = props.id;
+  const [userPassion, setUserPassion] = useState(["coocking" , "craft-beer" , "cyckling" , "music" , "movie"]);
+  const [userData1, setuserData1] = useState([{
+    name:"",
+    age:"",
+    bio:""
+  }]);
+  const [userData, setuserData] = useState({
+    name :"",
+    age:"",
+    bio:"Marvel Cinematic Universe"
+  });
+  const [cookies] = useCookies([]);
+  useEffect(()=>{
+    const verifyUser = async ()=>{
+      console.log("u r in feed cookie");
+      const {data} = await axios.post("http://localhost:5000/feeds",{
+        id
+      },{
+        withCredentials:true,
+      });
+      // data can be accesed here..
+      // console.log(data.user.suggestions[0].name)
+      console.log("feed from here...");
+      console.log(data);
+    };
+    verifyUser();
+  },[cookies]);
   const [currSlide, setcurrSlide] = useState(1);
   const nextSlide = () => {
     if (currSlide !== UserMedia.length) {
@@ -44,34 +73,22 @@ function Feed(props) {
               />
             );
           })}
-          {/* <img
-            src="https://images.unsplash.com/photo-1618721405821-80ebc4b63d26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZmVtYWxlJTIwbW9kZWx8ZW58MHx8MHx8&w=1000&q=80"
-            alt="blank"
-          /> */}
           <ArrowForwardIosIcon
             className="rbtn"
-            style={{ color: "#fff" }}
+            style={{ color: "#000" }}
             onClick={nextSlide}
           />
           <ArrowBackIosIcon
             className="lbtn"
-            style={{ color: "#fff" }}
+            style={{ color: "#000" }}
             onClick={prevSlide}
           />
         </div>
         <div className="data-feed">
           <div className="Username">
             <p>
-              <b>{props.name}</b>
+              <b>{props.name} </b> {props.age}
             </p>
-          </div>
-          <div className="Userbio">
-            <p>{props.bio}</p>
-          </div>
-          <div className="Userpassion">
-            {Passion.map((obj, index) => {
-              return <span> {obj.data} </span>;
-            })}
           </div>
           <FavoriteIcon
             className="dtbtn"
@@ -84,10 +101,21 @@ function Feed(props) {
             style={{ color: "rebeccapurple" }}
           />
           <CloseIcon className="dtbtn" id="cbtn" style={{ color: "red" }} />
+          { userData.bio ? 
+          <div className="Userbio">
+            <h4>About</h4>
+            <p>{userData.bio}</p>
+          </div> : null
+          }
+          <div className="Userpassion">
+            <h4>Passion</h4>
+            {userPassion.map((obj, index) => {
+              return <span id="circlePassion"> {userPassion[index]} </span>;
+            })}
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
 export default Feed;
