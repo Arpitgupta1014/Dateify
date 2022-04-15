@@ -221,7 +221,7 @@
 }
 .signup::before{
     content: "";
-    background: url('/avishkar/src/components/istockphoto-1269715486-170667a.jpg') no-repeat center center/cover;
+    background: url('https://media.istockphoto.com/photos/white-cups-against-the-background-of-the-rising-sun-the-sea-and-two-picture-id1269715486?b=1&k=20&m=1269715486&s=170667a&w=0&h=MI5p0jRyOGx2vPjfE1DNuJGdga1WbErV5AMqDgtgrLw=') no-repeat center center/cover;
     position: absolute;
     height:100vh;
     width:100%;
@@ -371,7 +371,7 @@
 }
 .form::before{
     content: "";
-    background: url('/avishkar/src/components/istockphoto-1269715486-170667a.jpg') no-repeat center center/cover;
+    background: url('https://media.istockphoto.com/photos/white-cups-against-the-background-of-the-rising-sun-the-sea-and-two-picture-id1269715486?b=1&k=20&m=1269715486&s=170667a&w=0&h=MI5p0jRyOGx2vPjfE1DNuJGdga1WbErV5AMqDgtgrLw=') no-repeat center center/cover;
     position: absolute;
     height:100vh;
     width:100%;
@@ -476,7 +476,9 @@
     padding: 6px;
     max-height: 200px;
     min-height: 50px;
+    width: 340px;
     font-size: 18px;
+    overflow-wrap: break-word;
     color: black;
     background-color: white;
     font-family: cursive;
@@ -495,6 +497,12 @@
     box-shadow: 0 0 15px 0 rgba(0,0,0,0.3);
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+}
+.profilechild #decBottom{
+    margin-bottom: -24px;
+}
+.profilechild #incHeight{
+    height:570px;
 }
 .dataStyle h4{
     margin: 0px;
@@ -519,7 +527,22 @@
 .pbtn:hover{
     background-color:#2c65d6;
 }
-
+  .prbtn{
+    position: relative;
+    bottom: 210px;
+    left: 345px;
+    cursor: pointer;
+}
+.profile .upper .plbtn
+{
+    position: relative;
+    bottom: 210px;
+    right: 38px;
+    cursor: pointer;
+}
+.profile .upper #incBottom{
+    bottom: 300px;
+}
 /*Styling Edit Profile page*/
 .edCard h3{
     font-size: 28px;
@@ -734,28 +757,24 @@
 
 .profile .upper .profilechild .rbtn{
     position: relative;
-    bottom: 250px;
-    left: 380px;
+    bottom: 300px;
+    left: 395px;
 }
 .profile .upper .profilechild .lbtn{
     position: relative;
-    bottom: 250px;
-    right: 21px;
+    bottom: 300px;
+    right: 36px;
 }
 .profile .upper .profilechild .lbtn,.rbtn:hover{
     cursor: pointer;
 }
-.profile .upper .profilechild .lessmargin{
-    margin-top: -50px;
-}
 .profile .data-feed .dtbtn{
     position: relative;
-    bottom: 150px;
-    margin-left: 52px;
+    bottom: 10px;
+    margin-left: 70px;
     border-radius: 50%;
     padding: 8px;
 }
-
 .profile .data-feed #fbtn{
    border: 1px solid #13d373;
 }
@@ -774,60 +793,76 @@
 .profile .data-feed #cbtn:hover{
     background-color: rgb(235, 137, 137);
 }
+.profile .upper .profilechild #Fcss{
+    margin-top: -50px;
+}
+.profile .upper .profilechild #Lcss{
+    margin-top: -30px;
+}
 .profile .data-feed{
-    position:relative;
-    bottom: 0px;
+    margin-top: -150px;
 }
 .profile .data-feed .Username{
     position: relative;
-    bottom: 160px;
-    left:-16px;
+    bottom: 15px;
+    margin-left: 10px;
     color: white;
-    /* right:100px; */
-    /* align-items: flex-start; */
-    /* margin-right:266px; */
     font-size: 24px;
-    /* background: linear-gradient(45deg, #000 -30%, #bb71 100%); */
 }
-.profile .data-feed .Userbio{
-    position: relative;
-    bottom: 175px;
-    color: white;
-    left:-15px;
+.profile .data-feed .Userbio , .Userpassion{
+    margin-top: -7px;
+    margin-bottom: 9px;
+    padding: 6px;
+    max-height: 200px;
+    min-height: 50px;
+    width: 390px;
+    overflow-wrap: break-word;
     font-size: 18px;
-    /* background: linear-gradient(45deg, #000 -30%, #bb71 100%); */
+    color: black;
+    background-color: white;
+    font-family: cursive;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.1);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom: 1px solid rgb(214, 211, 211);
+}
+.profile .data-feed .Userpassion h4{
+    margin-top: 1px;
+    margin-bottom: 5px;
+}
+.profile .data-feed .Userbio h4{
+    margin-top: 1px;
+    margin-bottom: 5px;
+}
+.profile .data-feed .Userbio p{
+    margin: 1px;
 }
 .profile .data-feed .Userpassion{
-    position: relative;
-    bottom: 175px;
+  background-color: #000;
+  color: white;
+}
+.profile .data-feed .Userbio{
+    background-color: #000;
     color: white;
-    /* margin-left: 4px; */
-    left:-16px;
-    font-size: 18px;
-}
-.profile  .Userpassion span{
-    background: linear-gradient(45deg, #e2a145 10%, #bb5090 90%);
-    /*margin-right: 15px;
-    margin-left: -5px; */
-    border-radius: 10px;
-    /* margin-left:-20px; */
-    margin-right: 8px;
-    padding: 3px;
-}
-.feedmax{
-    height: 740px;
+  }
+.profile .data-feed .Userpassion #circlePassion{
+    border: 1px solid red; 
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-right: 2px;
+    padding : 0px 2px;
 }
 .profile .upper .lessbottom img{
-    position: relative;
-    top:100px;
-    height: 650px;
+    margin-top: 20px;
+    height: 600px;
     min-width: 400px;
     max-width: 600px;
-    /* border-bottom: 1px solid linear-gradient(45deg, #000 -30%, #bb71 100%); */
+} 
+.profile .upper .lessbottom #incFH{
+    height: 650px;
 }
-/* .blackshadow{
-    background: linear-gradient(45deg, #000 -30%, #bb71 100%); 
-} */
 .sideBar .topSide .chat{
     position: fixed;
     right: 1240px;
@@ -950,7 +985,7 @@
 }
 .chat-container::before{
     content: "";
-    background: url('/avishkar/src/components/842009-top-full-hd-background-images-1920x1080.jpg') no-repeat center center/cover;
+    background: url('https://getwallpapers.com/wallpaper/full/c/6/9/842009-top-full-hd-background-images-1920x1080.jpg') no-repeat center center/cover;
     position: absolute;
     height:100vh;
     width:100%;
