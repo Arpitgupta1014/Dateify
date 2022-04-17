@@ -12,7 +12,22 @@ module.exports.checkUser = (req,res,next)=>{
             }
             else{
                 const user = await User.findById(decodedToken.id);
-                if(user) res.json({status:true ,user: user});
+                if(user){
+                    var temp = {
+                        _id:user._id,
+                        name:user.name,
+                        email:user.email,
+                        age:user.age,
+                        sex:user.sex,
+                        tags:user.tags,
+                        about:user.about,
+                        city:user.city,
+                        company:user.company,
+                        institution:user.institution,
+                        uploadedimg:user.uploadedimg,
+                    }
+                    res.json({status:true ,user: temp});
+                } 
                 else res.json({status:false});
                 next();
             }
