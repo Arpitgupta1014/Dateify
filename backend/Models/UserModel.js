@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
         required:[true,"password is required"],
     },
     age:{
-        type:Number
+        type:String
     },
     sex: {
         type:String
@@ -52,25 +52,26 @@ const userSchema = new mongoose.Schema({
         type: String
     },
     uploadedimg: [imgdetSchema],
+    likedppl:[String],
 });
 
-userSchema.pre("save",async function(next){
-    const salt = await bcrypt.genSalt();
-    this.password = await bcrypt.hash(this.password,salt);
-    next();
-});
+// userSchema.pre("save",async function(next){
+//     const salt = await bcrypt.genSalt();
+//     this.password = await bcrypt.hash(this.password,salt);
+//     next();
+// });
 
-userSchema.statics.login = async function(name,email,password){
-    const user = await this.findOne({email});
-    if(user){
-        const auth = await bcrypt.compare(password,user.password);
-        if(auth){
-            return user;
-        }
-        throw Error("Incorrect Password");
-    }
-    throw Error("Incorrect Email");
-}
+// userSchema.statics.login = async function(name,email,password){
+//     const user = await this.findOne({email});
+//     if(user){
+//         const auth = await bcrypt.compare(password,user.password);
+//         if(auth){
+//             return user;
+//         }
+//         throw Error("Incorrect Password");
+//     }
+//     throw Error("Incorrect Email");
+// }
 
 
 module.exports = mongoose.model("Person",userSchema);
