@@ -30,7 +30,7 @@
   transition: 0.3s ease-in-out;
   border-radius: 0 3px 3px 0;
   user-select: none;
-} 
+}
 
 .next{
     right:0;
@@ -78,14 +78,14 @@
     -webkit-animation-duration: 0.s;
     animation-name: fade;
     animation-duration: 0.8s;
-    
+
 }
 
 @-webkit-keyframes fade {
     from {opacity: 0.9}
     to {opacity: 1}
 }
-  
+
 @keyframes fade {
     from {opacity: 0.9}
     to {opacity: 1}
@@ -157,7 +157,7 @@
     border-radius: 50%;
     position: absolute;
     left:5px;
-    margin-top:4px; 
+    margin-top:4px;
 }
 
 /* Styling cards */
@@ -230,7 +230,7 @@
     z-index: -1;
     opacity: 0.8;
 }
-.signup .box{ 
+.signup .box{
     position: relative;
     display: flex;
     z-index: 10;
@@ -320,9 +320,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top:150px;
+    margin-top:100px;
     background-color: black;
-    height: 520px;
+    height: 580px;
     width: 400px;
     margin-left: auto;
     margin-right: auto;
@@ -549,7 +549,7 @@
 fieldset {
   overflow: hidden;
   border: none;
-}  
+}
 .Edgen {
   float: left;
   clear: none;
@@ -562,7 +562,7 @@ fieldset {
     padding: 0px 1em 0px 18px;
     margin-top: 10px;
 }
-  
+
 input[type=radio],
   input.radio {
     float: left;
@@ -748,7 +748,7 @@ input[type=radio],
 .overlay .inputPassion{
     width:400px;
     height: 350px;
-    background-color: white; 
+    background-color: white;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -876,7 +876,7 @@ input[type=radio],
     color: white;
   }
 .profile .data-feed .Userpassion #circlePassion{
-    border: 1px solid red; 
+    border: 1px solid red;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
@@ -889,7 +889,7 @@ input[type=radio],
     height: 600px;
     min-width: 400px;
     max-width: 600px;
-} 
+}
 .profile .upper .lessbottom #incFH{
     height: 650px;
 }

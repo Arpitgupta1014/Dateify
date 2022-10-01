@@ -2,7 +2,7 @@ const User = require("../Models/UserModel");
 const Uploade = require("../Models/ImageModel");
 const jwt = require("jsonwebtoken");
 const expressJWT = require('express-jwt');
-const _ = require('lodash'); 
+const _ = require('lodash');
 const bcrypt = require('bcrypt');
 const saltRound = 10;
 
@@ -216,7 +216,7 @@ module.exports.googlelogin = async(req,res,next)=>{
 //                 res.status(200).json({user:user._id,created:true});
 //             }
 //         })
-        
+
 //     }
 //     catch(err){
 //         console.log(err);
@@ -477,7 +477,7 @@ module.exports.userFeeds = (req,res,next)=>{
                     else{
                         //console.log(data);
                         data.forEach((userdata)=>{
-                            if(userdata.id != id){  
+                            if(userdata.id != id){
                                 let SendUser = false;
                                 console.log(userdata.name,userdata.email,userdata.sex);
                                 if((userdata.city===city || userdata.institution===institution || userdata.company===company)){
@@ -495,7 +495,7 @@ module.exports.userFeeds = (req,res,next)=>{
                                             }
                                         }
                                     }
-                                } 
+                                }
                                 if(SendUser === true){
                                     var temp = {
                                         _id:userdata._id,
@@ -523,7 +523,7 @@ module.exports.userFeeds = (req,res,next)=>{
                 })
             }
         })
-        
+
     }
     catch(err){
         next(err);
@@ -545,7 +545,7 @@ module.exports.getimage = (req,res,next)=>{
                         var images = user.uploadedimg;
                         var id = user._id;
                         res.json({status:true ,images: images,id:id});
-                    } 
+                    }
                     else res.json({status:false});
                     next();
                 }
@@ -608,4 +608,38 @@ module.exports.AddlikedUser = (req,res,next)=>{
     catch(err){
         next(err);
     }
+}
+
+module.exports.ForgetPassword = async(req,res,next) => {
+  try {
+    const { email, password, newpassword } = req.body;
+    const user = await User.findOne({email:email});
+    const hashed = await bcrypt.hash(newpassword,saltRound);
+
+    if(user){
+      const verified = await bcrypt.compare(password,user.password);
+      if(verified){
+        console.log(verified);
+        const updatedpassword = await User.findByIdAndUpdate(
+          user._id,{password:hashed,},{new:true,},
+        )
+        if(!updatedpassword) {
+          res.status(404);
+          throw new Error("Password not updated.")
+        }else{
+          res.json(updatedpassword);
+        }
+      }else{
+        throw new Error("Invalid Password")
+      }
+
+
+    }
+
+
+
+
+  } catch (err) {
+    next(err);
+  }
 }
