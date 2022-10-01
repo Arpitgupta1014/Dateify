@@ -155,12 +155,16 @@ function EditProfile(props) {
         </div>
         <div className="edChild inputarea">
           <h4 id="gen">Gender</h4>
-          <lable htmlFor="gen1">Male</lable>
-          <input type="radio" name="gender" id="gen1" value="Male" onChange={handleChange} />
-          <label htmlFor="gen2">Female</label>
-          <input type="radio" name="gender" id="gen2" value="Female" onChange={handleChange} />
-          <label htmlFor="gen3">Other</label>
-          <input type="radio" name="gender" id="gen3" value="Other" onChange={handleChange} />
+        <fieldset>
+      <div class="Edgen">
+        <input type="radio" class="radio" name="gender" value="Male" onChange={handleChange}  />
+        <label>Male</label>
+        <input type="radio" class="radio" name="gender" value="Female" onChange={handleChange} />
+        <label>Female</label>
+        <input type="radio" class="radio" name="gender" value="Other" onChange={handleChange} />
+        <label>Other</label>
+      </div>
+        </fieldset>
         </div>
         <div className="edChild inputarea">
           <h4>About</h4>
