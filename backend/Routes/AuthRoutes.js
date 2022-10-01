@@ -1,4 +1,4 @@
-const { register, googlelogin,login,editProfile,uploadPic,deletePost,userFeeds,getimage,deleteUsr,AddlikedUser} = require("../Controllers/AuthControllers");
+const { register, googlelogin,login,editProfile,uploadPic,deletePost,userFeeds,getimage,deleteUsr,AddlikedUser,ForgetPassword} = require("../Controllers/AuthControllers");
 const {checkUser} = require("../Middlewares/AuthMiddlewares");
 
 const router = require("express").Router();
@@ -16,5 +16,6 @@ router.post('/feeds',userFeeds);
 router.post('/getimage',getimage);
 router.post('/deleteUsr',deleteUsr);
 router.post('/AddlikedUser',AddlikedUser);
+router.post('/ForgetPassword',ForgetPassword);
 
 module.exports = router;
