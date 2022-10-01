@@ -499,7 +499,7 @@
     border-top-left-radius: 5px;
 }
 .profilechild #decBottom{
-    margin-bottom: -24px;
+    margin-bottom: -16px;
 }
 .profilechild #incHeight{
     height:570px;
@@ -544,6 +544,32 @@
     bottom: 300px;
 }
 /*Styling Edit Profile page*/
+
+/* styling Gender section */
+fieldset {
+  overflow: hidden;
+  border: none;
+}  
+.Edgen {
+  float: left;
+  clear: none;
+}
+
+.Edgen label {
+    float: left;
+    clear: none;
+    display: block;
+    padding: 0px 1em 0px 18px;
+    margin-top: 10px;
+}
+  
+input[type=radio],
+  input.radio {
+    float: left;
+    clear: none;
+    margin: 2px 0 0 2px;
+}
+
 .edCard h3{
     font-size: 28px;
     color: gray;
@@ -620,6 +646,10 @@
     font-weight: 500;
     z-index: 1;
 }
+.edChild .inputarea .radiobtn{
+   margin-left:12px;
+}
+
 .inputarea input{
     height: 35px;
     font-size: 16px;
