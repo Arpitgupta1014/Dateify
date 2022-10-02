@@ -1,6 +1,7 @@
 import React , {useState} from "react";
 import css from "./style.css"
 import axios from 'axios';
+import ForgotPassword from "./ForgotPassword";
 import GoogleLogin from 'react-google-login';
 function Login(props){
 
@@ -8,7 +9,7 @@ function Login(props){
         email : "",
         password:""
     })
-    
+
     function handleChange(e) {
         const { name, value } = e.target;
         setLoginData((preValue) => {
@@ -20,7 +21,7 @@ function Login(props){
     }
     const responseSuccessGoogle = async(response) => {
     console.log(response);
-    
+
         try{
           const {data} = await axios.post("http://localhost:5000/googlelogin",{
             tokenId: response.tokenId
@@ -76,34 +77,53 @@ function Login(props){
     const responseErrorGoogle = (response)=>{
         console.log(response);
     }
+
+    const [page, setPage] = useState({
+      oldPassword: true,
+      newPassword: false,
+    });
+    function handlePassword() {
+      setPage(() => {
+        return {
+          oldPassword: false,
+          newPassword: true,
+        };
+      });
+    }
     return(
       <>
-      <form className="form">
-        <div className="boxLog">
-            <img src="https://qph.fs.quoracdn.net/main-thumb-1278318002-200-ydzfegagslcexelzgsnplcklfkienzfr.jpeg" alt="img" className="avatarLog" />
-            <h2>Get Started</h2>
-            <div className="login">
-                <h2>Email</h2>
-                <input className="loginbt" type="email" placeholder="Enter Email" name="email" onChange={handleChange} />
+      {page.oldPassword ? (
+        <form className="form">
+          <div className="boxLog">
+              <img src="https://qph.fs.quoracdn.net/main-thumb-1278318002-200-ydzfegagslcexelzgsnplcklfkienzfr.jpeg" alt="img" className="avatarLog" />
+              <h2>Get Started</h2>
+              <div className="login">
+                  <h2>Email</h2>
+                  <input className="loginbt" type="email" placeholder="Enter Email" name="email" onChange={handleChange} />
+              </div>
+              <div className="login">
+                  <h2>Password</h2>
+                  <input className="loginbt" type="password" placeholder="Enter Password" name="password" onChange={handleChange} />
+              </div>
+              <div className="login">
+                  <input type="button" value="Login" onClick={handleClick} />
+              </div>
+              <div>
+            <GoogleLogin className="setlog1"
+              clientId="634193116808-mhg7vbt3hph1bg2sb0sfia6skijf3o71.apps.googleusercontent.com"
+              buttonText="Login with google"
+              onSuccess={responseSuccessGoogle}
+              onFailure={responseErrorGoogle}
+              cookiePolicy={'single_host_origin'}
+          />
             </div>
             <div className="login">
-                <h2>Password</h2>
-                <input className="loginbt" type="password" placeholder="Enter Password" name="password" onChange={handleChange} />
+                <input type="button" value="Forgot Password" onClick={handlePassword} />
             </div>
-            <div className="login">
-                <input type="button" value="Login" onClick={handleClick} />
-            </div>
-            <div>
-          <GoogleLogin className="setlog1"
-            clientId="634193116808-mhg7vbt3hph1bg2sb0sfia6skijf3o71.apps.googleusercontent.com"
-            buttonText="Login with google"
-            onSuccess={responseSuccessGoogle}
-            onFailure={responseErrorGoogle}
-            cookiePolicy={'single_host_origin'}
-        />
           </div>
-        </div>
-        </form>
+          </form>
+      ) : null}
+        {page.newPassword ? <ForgotPassword /> : null}
       </>
     );
 }
