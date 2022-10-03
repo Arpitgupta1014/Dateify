@@ -74,10 +74,10 @@ function SignUp(props) {
             // handel error...
 
 
-            
+
             console.log("In corrcet credentials.");
             alert("User Already Exists!!");
-            
+
           }
           else{
             return props.onChecked("profile");
@@ -90,25 +90,13 @@ function SignUp(props) {
       // return props.onChecked("profile");
     }
   }
- function goToprofile(e) {
-     return props.onChecked("profile");
-  }
-  const [page, setPage] = useState({
-    signup: true,
-    login: false,
-  });
+
   function handleLogin() {
-    setPage(() => {
-      return {
-        signup: false,
-        login: true,
-      };
-    });
+    return props.onChecked("login");
   }
   const [isOpen, setisOpen] = useState(false);
   return (
     <>
-      {page.signup ? (
         <div className="signup">
           <section className="box">
             <div className="imglog">
@@ -170,8 +158,6 @@ function SignUp(props) {
             </div>
           </section>
         </div>
-      ) : null}
-      {page.login ? <Login onBack={goToprofile} /> : null}
     </>
   );
 }
