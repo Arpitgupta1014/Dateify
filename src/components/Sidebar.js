@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
+import axios from 'axios';
 import {useCookies} from 'react-cookie';
 import css from "./style.css";
 import Home from "./Home.js";
@@ -14,11 +15,31 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Person from "@material-ui/icons/Person";
 
-function Sidebar(props) {
+function Sidebar (props) {
+
+const [userId,setUserId] = useState("");
+
+useEffect(async() => {
+  const { data } = await axios.post(
+    "http://localhost:5000",
+    {},
+    { withCredentials: true }
+  );
+  setUserId(data.user._id)
+},[]);
+
+
   const [cookies,setCookies,removeCookies] = useCookies([]);
   const logOut = ()=>{
     removeCookies("jwt");
-    // navigate to loginPage...
+    return props.loggedOut("login");
+  }
+
+  const deleteAccount = async() => {
+    const {data} = await axios.post("http://localhost:5000/deleteUsr",{id:userId},{ withCredentials: true });
+    console.log(data);
+    removeCookies("jwt");
+    return props.loggedOut("home");
   }
   return (
     <div className="sideBar">
@@ -41,7 +62,7 @@ function Sidebar(props) {
       </div>
       <div className="menu-bar">
         <DeleteIcon style={{ "font-size": "30px" }} />
-        <h3>Delete Account</h3>
+        <h3 onClick={deleteAccount}>Delete Account</h3>
       </div>
     </div>
   );
