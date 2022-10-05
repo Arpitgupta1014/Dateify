@@ -209,6 +209,7 @@ function Profile(props) {
             onShow={handleShow}
             id={userId}
             bcLog={redirect}
+            loggedOut={(id) => {return props.onChecked(id);}}
           />
         )}
         {show.Profile ? (

@@ -3,7 +3,7 @@ import css from "./style.css"
 import axios from 'axios';
 import Login from "./Login";
 
-function ForgotPassword(){
+function ForgotPassword(props){
 
   const [password,setPassword] = useState("");
   const [newpassword,setNewPassword] = useState("");
@@ -20,21 +20,13 @@ function ForgotPassword(){
   const handleNew = (e) => {
       setNewPassword(e.target.value);
   }
-  const [page, setPage] = useState({
-    oldPassword: true,
-    newPassword: false,
-  });
+
   const handleClick = async() => {
 try {
   const {data} = await axios.post("http://localhost:5000/ForgetPassword",{email,password,newpassword},{
     withCredentials:true,
   });
-  setPage(() => {
-    return {
-      oldPassword: false,
-      newPassword: true,
-    };
-  });
+return props.onChecked("login");
 } catch (e) {
   console.log(e);
 }
@@ -43,7 +35,6 @@ try {
   return(
     <>
 
-    {page.oldPassword ? (
       <form className="form">
         <div className="boxLog">
             <img src="https://qph.fs.quoracdn.net/main-thumb-1278318002-200-ydzfegagslcexelzgsnplcklfkienzfr.jpeg" alt="img" className="avatarLog" />
@@ -65,8 +56,6 @@ try {
             </div>
         </div>
         </form>
-    ) : null}
-      {page.newPassword ? <Login /> : null}
 
     </>
   );

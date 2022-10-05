@@ -35,7 +35,7 @@ function Login(props){
               console.log("In corrcet credentials.");
             }
             else{
-                return props.onBack("profile");
+                return props.onChecked("profile");
             }
           }
         }catch(err){
@@ -72,27 +72,18 @@ function Login(props){
               console.log(err);
           }
 
-        return props.onBack("profile");
+        return props.onChecked("profile");
     }
     const responseErrorGoogle = (response)=>{
         console.log(response);
     }
 
-    const [page, setPage] = useState({
-      oldPassword: true,
-      newPassword: false,
-    });
+
     function handlePassword() {
-      setPage(() => {
-        return {
-          oldPassword: false,
-          newPassword: true,
-        };
-      });
+    return props.onChecked("forgotpassword");
     }
     return(
       <>
-      {page.oldPassword ? (
         <form className="form">
           <div className="boxLog">
               <img src="https://qph.fs.quoracdn.net/main-thumb-1278318002-200-ydzfegagslcexelzgsnplcklfkienzfr.jpeg" alt="img" className="avatarLog" />
@@ -122,8 +113,6 @@ function Login(props){
             </div>
           </div>
           </form>
-      ) : null}
-        {page.newPassword ? <ForgotPassword /> : null}
       </>
     );
 }
